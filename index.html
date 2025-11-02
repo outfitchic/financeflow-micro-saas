@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTReader Crypto - Professional Trading Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <link rel="stylesheet" href="styles/ctrader.css">
+</head>
+<body>
+    <div class="trading-platform">
+        <!-- Header -->
+        <header class="platform-header">
+            <div class="header-left">
+                <h1 class="brand">CTReader</h1>
+                <div class="market-selector">
+                    <select id="crypto-select">
+                        <option value="BTCUSDT">Bitcoin (BTC)</option>
+                        <option value="ETHUSDT">Ethereum (ETH)</option>
+                        <option value="ADAUSDT">Cardano (ADA)</option>
+                        <option value="SOLUSDT">Solana (SOL)</option>
+                        <option value="DOTUSDT">Polkadot (DOT)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="current-price">
+                    <span class="price-label">Price:</span>
+                    <span class="price-value" id="current-price">$43,250.00</span>
+                    <span class="price-change positive" id="price-change">+2.34%</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="time-info">
+                    <span id="current-time">14:32:15</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Side Panel -->
+            <aside class="side-panel">
+                <div class="panel-section">
+                    <h2 class="panel-title">Timeframes</h2>
+                    <div class="timeframe-selector">
+                        <button class="timeframe-btn" data-interval="1m">1m</button>
+                        <button class="timeframe-btn" data-interval="5m">5m</button>
+                        <button class="timeframe-btn active" data-interval="15m">15m</button>
+                        <button class="timeframe-btn" data-interval="1h">1h</button>
+                        <button class="timeframe-btn" data-interval="4h">4h</button>
+                        <button class="timeframe-btn" data-interval="1d">1d</button>
+                        <button class="timeframe-btn" data-interval="1w">1w</button>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h2 class="panel-title">Indicators</h2>
+                    <div class="indicator-list">
+                        <div class="indicator-item" data-indicator="sma">
+                            <span>Moving Average</span>
+                            <button class="toggle-btn">OFF</button>
+                        </div>
+                        <div class="indicator-item" data-indicator="rsi">
+                            <span>RSI</span>
+                            <button class="toggle-btn">OFF</button>
+                        </div>
+                        <div class="indicator-item" data-indicator="macd">
+                            <span>MACD</span>
+                            <button class="toggle-btn">OFF</button>
+                        </div>
+                        <div class="indicator-item" data-indicator="bb">
+                            <span>Bollinger Bands</span>
+                            <button class="toggle-btn">OFF</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h2 class="panel-title">Drawing Tools</h2>
+                    <div class="drawing-tools">
+                        <button class="tool-btn" data-tool="cursor">Cursor</button>
+                        <button class="tool-btn" data-tool="line">Line</button>
+                        <button class="tool-btn" data-tool="rectangle">Rectangle</button>
+                        <button class="tool-btn" data-tool="trendline">Trendline</button>
+                        <button class="tool-btn" data-tool="fibonacci">Fibonacci</button>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h2 class="panel-title">Market Info</h2>
+                    <div class="market-info">
+                        <div class="info-row">
+                            <span>24h Volume:</span>
+                            <span id="volume">$2.5B</span>
+                        </div>
+                        <div class="info-row">
+                            <span>24h High:</span>
+                            <span id="high-24h">$44,120</span>
+                        </div>
+                        <div class="info-row">
+                            <span>24h Low:</span>
+                            <span id="low-24h">$42,890</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Market Cap:</span>
+                            <span id="market-cap">$850B</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Chart Container -->
+            <main class="chart-container">
+                <div class="chart-header">
+                    <div class="ohlc-display">
+                        <div class="ohlc-item">
+                            <span class="ohlc-label">Open:</span>
+                            <span class="ohlc-value" id="open-price">$43,200.00</span>
+                        </div>
+                        <div class="ohlc-item">
+                            <span class="ohlc-label">High:</span>
+                            <span class="ohlc-value" id="high-price">$43,450.00</span>
+                        </div>
+                        <div class="ohlc-item">
+                            <span class="ohlc-label">Low:</span>
+                            <span class="ohlc-value" id="low-price">$43,150.00</span>
+                        </div>
+                        <div class="ohlc-item">
+                            <span class="ohlc-label">Close:</span>
+                            <span class="ohlc-value" id="close-price">$43,250.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="trading-chart"></div>
+            </main>
+        </div>
+
+        <!-- Bottom Panel -->
+        <div class="bottom-panel">
+            <div class="bottom-tabs">
+                <button class="tab-btn active" data-tab="volume">Volume</button>
+                <button class="tab-btn" data-tab="depth">Market Depth</button>
+            </div>
+            <div class="bottom-content">
+                <div id="volume-chart" class="bottom-chart"></div>
+                <div id="depth-chart" class="bottom-chart hidden"></div>
+            </div>
+        </div>
+
+        <!-- Status Bar -->
+        <footer class="status-bar">
+            <div class="status-left">
+                <span class="status-text">Connected to Binance API</span>
+                <span class="status-indicator"></span>
+            </div>
+            <div class="status-center">
+                <span id="chart-status">Ready</span>
+            </div>
+            <div class="status-right">
+                <span>Last update: <span id="last-update">--</span></span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="scripts/ctrader.js"></script>
+</body>
+</html>

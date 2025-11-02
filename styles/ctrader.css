@@ -1,0 +1,557 @@
+/* CTReader Crypto - Professional Trading Platform Styles */
+
+:root {
+  /* Colors - Professional Trading Theme */
+  --primary-500: #00E5FF;
+  --primary-300: #A8FAFF;
+  --primary-700: #00B8CC;
+  
+  --neutral-950: #000000;
+  --neutral-900: #0A0A0A;
+  --neutral-800: #141414;
+  --neutral-400: #383838;
+  --neutral-200: #A1A1A1;
+  --neutral-50: #E4E4E7;
+  
+  --success: #00E5FF;
+  --error: #FF479B;
+  --warning: #FFD600;
+  
+  /* Typography */
+  --font-ui: 'Inter', sans-serif;
+  --font-data: 'JetBrains Mono', monospace;
+  
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  
+  /* Shadows (Glow Effects) */
+  --glow-hover: 0 0 12px 2px rgba(0, 229, 255, 0.3);
+  --glow-active: 0 0 16px 4px rgba(0, 229, 255, 0.4);
+}
+
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-ui);
+  background-color: var(--neutral-950);
+  color: var(--neutral-50);
+  overflow: hidden;
+  height: 100vh;
+}
+
+.trading-platform {
+  display: grid;
+  grid-template-rows: 60px 1fr 200px 40px;
+  grid-template-columns: 280px 1fr;
+  height: 100vh;
+  background-color: var(--neutral-950);
+}
+
+/* Header */
+.platform-header {
+  grid-row: 1;
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--neutral-900);
+  border-bottom: 1px solid var(--neutral-400);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.brand {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.market-selector select {
+  background-color: var(--neutral-800);
+  color: var(--neutral-50);
+  border: 1px solid var(--neutral-400);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-sm);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+}
+
+.market-selector select:hover {
+  border-color: var(--primary-500);
+  box-shadow: var(--glow-hover);
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+}
+
+.current-price {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.price-label {
+  font-size: 12px;
+  color: var(--neutral-200);
+}
+
+.price-value {
+  font-family: var(--font-data);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--neutral-50);
+}
+
+.price-change {
+  font-family: var(--font-data);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.price-change.positive {
+  color: var(--success);
+  background-color: rgba(0, 229, 255, 0.1);
+}
+
+.price-change.negative {
+  color: var(--error);
+  background-color: rgba(255, 71, 155, 0.1);
+}
+
+.time-info {
+  font-family: var(--font-data);
+  font-size: 12px;
+  color: var(--neutral-200);
+}
+
+/* Side Panel */
+.side-panel {
+  grid-row: 2;
+  grid-column: 1;
+  background-color: var(--neutral-900);
+  border-right: 1px solid var(--neutral-400);
+  padding: var(--space-md);
+  overflow-y: auto;
+}
+
+.panel-section {
+  margin-bottom: var(--space-lg);
+}
+
+.panel-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--neutral-50);
+  margin-bottom: var(--space-sm);
+}
+
+/* Timeframe Selector */
+.timeframe-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xs);
+}
+
+.timeframe-btn {
+  background-color: transparent;
+  color: var(--neutral-200);
+  border: 1px solid var(--neutral-400);
+  border-radius: var(--radius-sm);
+  padding: 6px 8px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+}
+
+.timeframe-btn:hover {
+  background-color: var(--neutral-800);
+  color: var(--neutral-50);
+}
+
+.timeframe-btn.active {
+  background-color: var(--primary-500);
+  color: var(--neutral-950);
+  border-color: var(--primary-500);
+}
+
+/* Indicator List */
+.indicator-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.indicator-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  transition: all 200ms ease-out;
+  cursor: pointer;
+}
+
+.indicator-item:hover {
+  background-color: var(--neutral-800);
+}
+
+.indicator-item.active {
+  border-left: 4px solid var(--primary-500);
+  padding-left: calc(var(--space-xs) + 4px);
+}
+
+.toggle-btn {
+  background-color: transparent;
+  color: var(--neutral-200);
+  border: 1px solid var(--neutral-400);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+}
+
+.toggle-btn.active {
+  background-color: var(--primary-500);
+  color: var(--neutral-950);
+  border-color: var(--primary-500);
+}
+
+/* Drawing Tools */
+.drawing-tools {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xs);
+}
+
+.tool-btn {
+  background-color: transparent;
+  color: var(--neutral-200);
+  border: 1px solid var(--neutral-400);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+}
+
+.tool-btn:hover {
+  background-color: var(--neutral-800);
+  color: var(--neutral-50);
+}
+
+.tool-btn.active {
+  background-color: var(--primary-500);
+  color: var(--neutral-950);
+  border-color: var(--primary-500);
+}
+
+/* Market Info */
+.market-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: var(--space-xs);
+}
+
+.info-row span:first-child {
+  color: var(--neutral-200);
+}
+
+.info-row span:last-child {
+  font-family: var(--font-data);
+  color: var(--neutral-50);
+}
+
+/* Chart Container */
+.chart-container {
+  grid-row: 2;
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--neutral-950);
+}
+
+.chart-header {
+  background-color: var(--neutral-900);
+  border-bottom: 1px solid var(--neutral-400);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.ohlc-display {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.ohlc-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.ohlc-label {
+  font-size: 11px;
+  color: var(--neutral-200);
+  text-transform: uppercase;
+}
+
+.ohlc-value {
+  font-family: var(--font-data);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--neutral-50);
+}
+
+#trading-chart {
+  flex: 1;
+  position: relative;
+}
+
+/* Bottom Panel */
+.bottom-panel {
+  grid-row: 3;
+  grid-column: 1 / -1;
+  background-color: var(--neutral-900);
+  border-top: 1px solid var(--neutral-400);
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--neutral-400);
+}
+
+.tab-btn {
+  background-color: transparent;
+  color: var(--neutral-200);
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+}
+
+.tab-btn:hover {
+  background-color: var(--neutral-800);
+  color: var(--neutral-50);
+}
+
+.tab-btn.active {
+  background-color: var(--neutral-950);
+  color: var(--neutral-50);
+  border-bottom: 2px solid var(--primary-500);
+}
+
+.bottom-content {
+  flex: 1;
+  position: relative;
+}
+
+.bottom-chart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.bottom-chart.hidden {
+  display: none;
+}
+
+#volume-chart,
+#depth-chart {
+  width: 100%;
+  height: 100%;
+}
+
+/* Status Bar */
+.status-bar {
+  grid-row: 4;
+  grid-column: 1 / -1;
+  background-color: var(--neutral-900);
+  border-top: 1px solid var(--neutral-400);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-md);
+  font-size: 11px;
+  color: var(--neutral-200);
+}
+
+.status-left,
+.status-center,
+.status-right {
+  display: flex;
+  align-items: center;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: var(--success);
+  border-radius: 50%;
+  margin-left: var(--space-xs);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Loading States */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--neutral-200);
+  font-size: 12px;
+}
+
+.loading::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--neutral-400);
+  border-top: 2px solid var(--primary-500);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: var(--space-sm);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .trading-platform {
+    grid-template-columns: 240px 1fr;
+  }
+  
+  .ohlc-display {
+    gap: var(--space-md);
+  }
+  
+  .timeframe-selector {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .trading-platform {
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px auto auto 1fr 40px;
+  }
+  
+  .side-panel {
+    grid-row: 2;
+    grid-column: 1;
+    height: 120px;
+    overflow-y: hidden;
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-sm);
+  }
+  
+  .panel-section {
+    margin-bottom: 0;
+    min-width: 200px;
+  }
+  
+  .chart-container {
+    grid-row: 3;
+    grid-column: 1;
+  }
+  
+  .bottom-panel {
+    grid-row: 4;
+    grid-column: 1;
+  }
+  
+  .market-selector {
+    display: none;
+  }
+  
+  .current-price {
+    font-size: 14px;
+  }
+  
+  .ohlc-display {
+    gap: var(--space-sm);
+  }
+  
+  .ohlc-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Chart Container Styles */
+.trading-chart-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Utility Classes */
+.hidden {
+  display: none !important;
+}
+
+.positive {
+  color: var(--success) !important;
+}
+
+.negative {
+  color: var(--error) !important;
+}
+
+/* High Performance Animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
